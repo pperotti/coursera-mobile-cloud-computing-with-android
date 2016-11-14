@@ -1,0 +1,67 @@
+!SESSION 2014-07-24 10:45:00.310 -----------------------------------------------
+eclipse.buildId=4.4.0.I20140606-1215
+java.version=1.7.0_45
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.standard.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.standard.product
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2014-07-24 10:52:11.596
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2014-07-24 10:52:11.596
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.596
+!MESSAGE Software being installed: Eclipse Integration Commons 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.feature.group 3.6.0.201407080544-RELEASE)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.596
+!MESSAGE Missing requirement: SpringSource Tool Suite Workspace Configuration 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.configurator 3.6.0.201407080544-RELEASE) requires 'bundle org.springframework.core [4.0.0,4.1.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-07-24 10:52:11.596
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.596
+!MESSAGE From: Eclipse Integration Commons 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.feature.group 3.6.0.201407080544-RELEASE)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.597
+!MESSAGE To: org.springsource.ide.eclipse.commons.configurator [3.6.0.201407080544-RELEASE]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2014-07-24 10:52:11.607
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2014-07-24 10:52:11.607
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.607
+!MESSAGE Software being installed: Eclipse Integration Commons 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.feature.group 3.6.0.201407080544-RELEASE)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.607
+!MESSAGE Missing requirement: SpringSource Tool Suite Workspace Configuration 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.configurator 3.6.0.201407080544-RELEASE) requires 'bundle org.springframework.core [4.0.0,4.1.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-07-24 10:52:11.607
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.607
+!MESSAGE From: Eclipse Integration Commons 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.feature.group 3.6.0.201407080544-RELEASE)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.607
+!MESSAGE To: org.springsource.ide.eclipse.commons.configurator [3.6.0.201407080544-RELEASE]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2014-07-24 10:52:11.621
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2014-07-24 10:52:11.621
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.621
+!MESSAGE Software being installed: Eclipse Integration Commons 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.feature.group 3.6.0.201407080544-RELEASE)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.621
+!MESSAGE Missing requirement: SpringSource Tool Suite Workspace Configuration 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.configurator 3.6.0.201407080544-RELEASE) requires 'bundle org.springframework.core [4.0.0,4.1.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-07-24 10:52:11.621
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.621
+!MESSAGE From: Eclipse Integration Commons 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.feature.group 3.6.0.201407080544-RELEASE)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.621
+!MESSAGE To: org.springsource.ide.eclipse.commons.configurator [3.6.0.201407080544-RELEASE]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2014-07-24 10:52:11.624
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2014-07-24 10:52:11.624
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.624
+!MESSAGE Software being installed: Eclipse Integration Commons 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.feature.group 3.6.0.201407080544-RELEASE)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.624
+!MESSAGE Missing requirement: SpringSource Tool Suite Workspace Configuration 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.configurator 3.6.0.201407080544-RELEASE) requires 'bundle org.springframework.core [4.0.0,4.1.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-07-24 10:52:11.624
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.624
+!MESSAGE From: Eclipse Integration Commons 3.6.0.201407080544-RELEASE (org.springsource.ide.eclipse.commons.feature.group 3.6.0.201407080544-RELEASE)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-07-24 10:52:11.624
+!MESSAGE To: org.springsource.ide.eclipse.commons.configurator [3.6.0.201407080544-RELEASE]

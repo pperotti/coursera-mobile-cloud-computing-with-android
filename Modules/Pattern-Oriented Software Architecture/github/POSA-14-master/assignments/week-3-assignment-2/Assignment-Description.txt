@@ -1,0 +1,205 @@
+Programming Assignment 0.5
+
+In this assignment, you will use a Java ReentrantLock and Java
+ConditionObject to implement a subset of the Java
+java.util.concurrent.Semaphore class, which we call SimpleSemaphore.
+This assignment also reuses the SimpleAtomicLock you implemented for
+Assignment 0, so make sure it's working properly before attempting
+this assignment!  The goal of this assignment is to use the
+SimpleSemaphore to correctly implement a resource manager that limits
+the number of Beings from Middle-Earth who can concurrently gaze into
+a Palantir (if you're not a Lord of the Ring's fan see
+http://en.wikipedia.org/wiki/Palantir for more information on
+Palantir).
+
+The PalantirManagerTest.java program creates three Palantiri and five
+Threads (one for each Palantir user) that concurrently attempt to
+acquire a Palantir and gaze into it for a certain amount of time.  If
+the SimpleSemaphore and SimpleAtomicLock are implemented properly the
+test should succeed without throwing any exceptions.
+
+In this directory you'll find a number of files, all of which you
+should read.  However, the only two files you need to modify are
+SimpleAtomicLong.java class and SimpleSemaphore, which contains the
+skeleton Java code that you'll implement by completing the "TODO - You
+fill in here" comments to provide a working solution.  DO NOT CHANGE
+THE OVERALL STRUCTURE OF THE SKELETON - just fill in the "TODO - You
+fill in here" portions!!!
+
+In particular, you'll need to do the following:
+
+. Implement the SimpleAtomicLong class, which you should replace with
+  your working solution to assignment0.
+
+. Implement the SimpleSemaphore class using a Java ConditionObject and
+  Java ReentrantLock, which are covered in these videos:
+  
+  Section 1: Module 2: Part 5: Java ReentrantLock
+  Section 1: Module 2: Part 8: Java ConditionObject 
+
+  There are also relevant discussions about using Java
+  ConditionObjects at these links that may help with the
+  SimpleSemaphore implementation:
+
+  http://docs.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/locks/Condition.html
+  http://stackoverflow.com/questions/11308768/condition-should-unlock-before-await
+
+. Your SimpleSemaphore implementation must support the "Fair" and
+  "NotFair" semantics, which are covered in this video:
+
+  Section 1: Module 2: Part 7: Java Semaphore
+
+  It's easy to support both these semantics if you watch the Java
+  ReentrantLock video and understand how its constructor works.
+
+. The PalantirManagerTest.java program also uses various features of
+  Java Threads and Runnables, which are described in these videos:
+
+  Section 1: Module 2: Part 1: Overview of Java Threads (Part 1)
+  Section 1: Module 2: Part 2: Overview of Java Threads (Part 2)
+
+At the moment, all these videos are available in the YouTube playlist
+at
+
+https://www.youtube.com/playlist?list=PLZ9NgFYEMxp4tbiFYip6tDNIEBRUDyPQK
+ 
+When the 2014 POSA MOOC officially starts these videos will be
+available at
+
+https://class.coursera.org/posa-002/lecture
+
+We'll also discuss this assignment specification (and later its
+solution) in the POSA MOOC "Virtual Office Hours", which are described
+in item #38 at the POSA MOOC FAQ available from
+
+http://www.courera.org/course/posa
+
+To compile this code you can either use the provided Eclipse project
+or go into the src directory and simply type
+
+% javac FairnessChecker.java Palantir.java PalantirManager.java
+  PalantirManagerTest.java SimpleAtomicLong.java SimpleSemaphore.java
+
+on the command-line and then run the resulting class file by typing
+
+% java PalantirManagerTest
+
+The output for a correct solution should look something this:
+
+----------------------------------------
+Starting PalantirManagerTest
+Pippen is acquiring the palantir
+Pippen is starting to gaze at the MinisTirith palantir
+Aragorn is acquiring the palantir
+Aragorn is starting to gaze at the Orthanc palantir
+Denathor is acquiring the palantir
+Denathor is starting to gaze at the Barad-dur palantir
+Sauron is acquiring the palantir
+Saruman is acquiring the palantir
+Pippen is finished gazing at the MinisTirith palantir
+Pippen is releasing the MinisTirith palantir
+Pippen is acquiring the palantir
+Sauron is starting to gaze at the MinisTirith palantir
+Sauron is finished gazing at the MinisTirith palantir
+Sauron is releasing the MinisTirith palantir
+Sauron is acquiring the palantir
+Saruman is starting to gaze at the MinisTirith palantir
+Saruman is finished gazing at the MinisTirith palantir
+Pippen is starting to gaze at the MinisTirith palantir
+Saruman is releasing the MinisTirith palantir
+Saruman is acquiring the palantir
+Pippen is finished gazing at the MinisTirith palantir
+Pippen is releasing the MinisTirith palantir
+Pippen is acquiring the palantir
+Sauron is starting to gaze at the MinisTirith palantir
+Sauron is finished gazing at the MinisTirith palantir
+Sauron is releasing the MinisTirith palantir
+Sauron is acquiring the palantir
+Saruman is starting to gaze at the MinisTirith palantir
+Saruman is finished gazing at the MinisTirith palantir
+Pippen is starting to gaze at the MinisTirith palantir
+Saruman is releasing the MinisTirith palantir
+Saruman is acquiring the palantir
+Pippen is finished gazing at the MinisTirith palantir
+Pippen is releasing the MinisTirith palantir
+Pippen is acquiring the palantir
+Sauron is starting to gaze at the MinisTirith palantir
+Sauron is finished gazing at the MinisTirith palantir
+Sauron is releasing the MinisTirith palantir
+Sauron is acquiring the palantir
+Saruman is starting to gaze at the MinisTirith palantir
+Saruman is finished gazing at the MinisTirith palantir
+Pippen is starting to gaze at the MinisTirith palantir
+Saruman is releasing the MinisTirith palantir
+Saruman is acquiring the palantir
+Denathor is finished gazing at the Barad-dur palantir
+Denathor is releasing the Barad-dur palantir
+Denathor is acquiring the palantir
+Sauron is starting to gaze at the Barad-dur palantir
+Pippen is finished gazing at the MinisTirith palantir
+Pippen is releasing the MinisTirith palantir
+Pippen is acquiring the palantir
+Saruman is starting to gaze at the MinisTirith palantir
+Saruman is finished gazing at the MinisTirith palantir
+Denathor is starting to gaze at the MinisTirith palantir
+Saruman is releasing the MinisTirith palantir
+Saruman is acquiring the palantir
+Denathor is finished gazing at the MinisTirith palantir
+Denathor is releasing the MinisTirith palantir
+Denathor is acquiring the palantir
+Pippen is starting to gaze at the MinisTirith palantir
+Pippen is finished gazing at the MinisTirith palantir
+Pippen is releasing the MinisTirith palantir
+Saruman is starting to gaze at the MinisTirith palantir
+Saruman is finished gazing at the MinisTirith palantir
+Denathor is starting to gaze at the MinisTirith palantir
+Saruman is releasing the MinisTirith palantir
+Aragorn is finished gazing at the Orthanc palantir
+Aragorn is releasing the Orthanc palantir
+Aragorn is acquiring the palantir
+Aragorn is starting to gaze at the Orthanc palantir
+Denathor is finished gazing at the MinisTirith palantir
+Denathor is releasing the MinisTirith palantir
+Denathor is acquiring the palantir
+Denathor is starting to gaze at the MinisTirith palantir
+Denathor is finished gazing at the MinisTirith palantir
+Denathor is releasing the MinisTirith palantir
+Denathor is acquiring the palantir
+Denathor is starting to gaze at the MinisTirith palantir
+Denathor is finished gazing at the MinisTirith palantir
+Denathor is releasing the MinisTirith palantir
+Sauron is finished gazing at the Barad-dur palantir
+Sauron is releasing the Barad-dur palantir
+Sauron is acquiring the palantir
+Sauron is starting to gaze at the MinisTirith palantir
+Sauron is finished gazing at the MinisTirith palantir
+Sauron is releasing the MinisTirith palantir
+Aragorn is finished gazing at the Orthanc palantir
+Aragorn is releasing the Orthanc palantir
+Aragorn is acquiring the palantir
+Aragorn is starting to gaze at the MinisTirith palantir
+Aragorn is finished gazing at the MinisTirith palantir
+Aragorn is releasing the MinisTirith palantir
+Aragorn is acquiring the palantir
+Aragorn is starting to gaze at the MinisTirith palantir
+Aragorn is finished gazing at the MinisTirith palantir
+Aragorn is releasing the MinisTirith palantir
+Aragorn is acquiring the palantir
+Aragorn is starting to gaze at the MinisTirith palantir
+Aragorn is finished gazing at the MinisTirith palantir
+Aragorn is releasing the MinisTirith palantir
+Finishing PalantirManagerTest
+----------------------------------------
+
+Don't worry if your output occurs in a different order - that's to be
+expected in multi-threaded programs and OS/JVM platforms.  Also, don't
+worry about "warnings" since there's an intentional race condition in
+the test since it's possible for one thread to call
+mFairnessChecker.addNewThread() and then yield to another thread which
+again calls mFairnessChecker.addNewThread() and then goes on without
+interruption to call mPalantirManager.acquirePalantir(), which will
+fool the fairness checker into wrongly thinking the acquisition wasn't
+fair. we'll just give a warning (rather than an error) if it looks
+like the semaphore acquire() method isn't "fair".  The key is not to
+have runtime exceptions in your output!
+
